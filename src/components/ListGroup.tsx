@@ -1,9 +1,13 @@
 import { Fragment } from "react";
 import { useState } from "react";
 
+interface Props {
+  items: string[];
+  heading: string;
+}
 
-function ListGroup() {
-  let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+function ListGroup({items, heading}: Props) {
+  
 
 
   
@@ -14,7 +18,7 @@ function ListGroup() {
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
 
       {items.length === 0 && <p> No item found</p>}
       <ul className="list-group">
@@ -23,7 +27,7 @@ function ListGroup() {
             className={
               selectedIndex === index
                 ? "list-group-item active"
-                : "list=group-item"
+                : "list-group-item"
             }
             key={item}
             onClick={() => {setSelectedIndex(index);}}
